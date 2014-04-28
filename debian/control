@@ -11,6 +11,6 @@ Package: faba-colors
 Architecture: all
 Depends: ${misc:Depends}
  faba-icon-theme
-Description: Faba Colorsh
+Description: Faba Colors
  Faba Colors
- This is the base icon set for Faba. It is designed with simplcity and compliance to Tango desktop standards in mind. All variations and supplementary themes for Faba, require this base theme.
+ This a supplementary theme for Faba containing the color variations.
