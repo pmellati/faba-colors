@@ -1,0 +1,161 @@
+#!/bin/bash
+# -*- Mode: sh; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
+#
+# Authors:
+#   Sam Hewitt <hewittsamuel@gmail.com>
+#
+# Description:
+#   An installation bash script for Faba Icon Theme
+#
+# Legal Stuff:
+#
+# This file is part of the Faba Icon Theme and is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation; version 3.
+#
+# This file is part of the Faba Icon Theme and is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, see <https://www.gnu.org/licenses/gpl-3.0.txt>
+
+clear
+echo '#------------------------------------------------#'
+echo '#     Faba Colors Icon Theme Install Script      #'
+echo '#------------------------------------------------#'
+
+function continue {
+echo ""
+read -p "Do you want to continue? (Y)es, (N)o : " INPUT
+case $INPUT in
+	[Yy]* ) main;;
+    [Nn]* ) exit 99;;
+    * ) echo; echo "Sorry, try again."; continue;;
+esac
+}
+
+function main {
+if [ "$UID" -eq "$ROOT_UID" ]; then
+	if [ -d /usr/share/icons/Faba ]; then
+		echo
+		read -p "Found an existing installation. Replace it? (Y)es, (N)o : " INPUT
+		case $INPUT in
+			[Yy]* )
+				rm -Rf "/usr/share/icons/Faba-Ceru" 2>/dev/null
+				rm -Rf "/usr/share/icons/Faba-Lutu" 2>/dev/null
+				rm -Rf "/usr/share/icons/Faba-Roja" 2>/dev/null
+				rm -Rf "/usr/share/icons/Faba-Verd" 2>/dev/null
+			;;
+			[Nn]* );;
+		    * )
+		    clear && echo 'Sorry, try again.'
+		    main
+		    ;;
+		esac
+	fi
+	cp -R ./Faba-Ceru/ /usr/share/icons/
+	chmod -R 755 /usr/share/icons/Faba-Ceru
+	cp -R ./Faba-Lutu/ /usr/share/icons/
+	chmod -R 755 /usr/share/icons/Faba-Lutu
+	cp -R ./Faba-Roja/ /usr/share/icons/
+	chmod -R 755 /usr/share/icons/Faba-Roja
+	cp -R ./Faba-Verd/ /usr/share/icons/
+	chmod -R 755 /usr/share/icons/Faba-Verd
+	echo "Installation complete!"
+	set
+elif [ "$UID" -ne "$ROOT_UID" ]; then
+	if [ -d $HOME/.local/share/icons/Faba ]; then
+		echo
+		read -p "Found an existing installation. Replace it? (Y)es, (N)o : " INPUT
+		case $INPUT in
+			[Yy]* )
+				rm -Rf "$HOME/.local/share/icons/Faba-Ceru" 2>/dev/null
+				rm -Rf "$HOME/.local/share/icons/Faba-Lutu" 2>/dev/null
+				rm -Rf "$HOME/.local/share/icons/Faba-Roja" 2>/dev/null
+				rm -Rf "$HOME/.local/share/icons/Faba-Verd" 2>/dev/null
+				;;
+			[Nn]* );;
+		    * )
+		    clear && echo 'Sorry, try again.'
+		    main
+		    ;;
+		esac
+	fi
+	cp -R ./Faba-Ceru/ $HOME/.local/share/icons/
+	cp -R ./Faba-Lutu/ $HOME/.local/share/icons/
+	cp -R ./Faba-Roja/ $HOME/.local/share/icons/
+	cp -R ./Faba-Verd/ $HOME/.local/share/icons/
+	echo "Installation complete!"
+	set
+fi
+}
+
+function set {
+echo ""
+read -p "Do you want to set Faba as desktop theme? (Y)es, (N)o : " INPUT
+case $INPUT in
+	[Yy]* ) settheme;;
+    [Nn]* ) end;;
+    * ) echo; echo "Uh oh, invalid response. Please retry."; set;;
+esac
+}
+
+function settheme {
+echo ''
+echo '1. Faba-Ceru (Blue) icons'
+echo '2. Faba-Lutu (Orange) icons'
+echo '3. Faba-Roja (Red) icons'
+echo '4. Faba-Verd (Green) icons'
+echo ''
+read -p 'Which color icons would you like (Enter your choice) : ' REPLY
+case $REPLY in
+# Theme Choice
+1)	
+	echo "Setting Faba-Ceru as desktop icon theme..."
+	gsettings set org.gnome.desktop.interface icon-theme "Faba-Ceru"
+	echo "Done."
+	end
+	;;
+2)	
+	echo "Setting Faba-Lutu as desktop icon theme..."
+	gsettings set org.gnome.desktop.interface icon-theme "Faba-Lutu"
+	echo "Done."
+	end
+	;;
+3)	
+	echo "Setting Faba-Roja as desktop icon theme..."
+	gsettings set org.gnome.desktop.interface icon-theme "Faba-Roja"
+	echo "Done."
+	end
+	;;
+4)	
+	echo "Setting Faba-Verd as desktop icon theme..."
+	gsettings set org.gnome.desktop.interface icon-theme "Faba-Verd"
+	echo "Done."
+	end
+	;;
+# Invalid choice
+* ) 
+    clear && echo 'Not an option, try again.' && settheme;;
+esac
+}
+
+function end {
+	echo "Exiting"
+	exit 0
+}
+
+ROOT_UID=0
+if [ "$UID" -ne "$ROOT_UID" ]; then
+	echo
+	echo "Faba Colors will be installed in '$HOME/.local/share/icons/'."
+	echo "To make them available to all users, run this script as root."
+	continue
+else
+	echo
+	echo "Faba Colors will be installed in '/usr/share/icons'"
+	echo "It will be available to all users."
+	continue
+fi

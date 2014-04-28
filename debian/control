@@ -1,0 +1,16 @@
+Source: faba-colors
+Section: gnome
+Priority: optional
+Maintainer: Sam Hewitt <hewittsamuel@gmail.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.9.2
+Homepage: https://github.com/snwh/faba-colors
+
+
+Package: faba-colors
+Architecture: all
+Depends: ${misc:Depends}
+ faba-icon-theme
+Description: Faba Colorsh
+ Faba Colors
+ This is the base icon set for Faba. It is designed with simplcity and compliance to Tango desktop standards in mind. All variations and supplementary themes for Faba, require this base theme.
