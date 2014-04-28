@@ -1,7 +1,7 @@
 Faba Colors Icon Theme
 ======================
 
-These are supplementary theme for the Faba icon set. It contains colourified versions of the Faba icons.
+Faba Colors is a supplementary theme for the Faba icon set. It contains colourified versions of the Faba icons.
 
 Faba Colors is distributed under the terms of the GNU GPL v.3
 
