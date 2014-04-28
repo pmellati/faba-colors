@@ -9,7 +9,7 @@ Faba Colors is distributed under the terms of the GNU GPL v.3
 
 If you find any bugs or issues with Faba or if you have a question, you can visit Faba's issue tracker on [GitHub](https://github.com/snwh/faba-colors/issues).
 
-If you're feeling awesome, you can contribute a [donation](http://www.mokaproject.com/donate/ "Donate"). :)
+If you're feeling awesome, you can contribute a [donation](http://www.mokaproject.com/#donate/ "Donate"). :)
 
 ###Download
 
@@ -33,7 +33,7 @@ There are scripts to simplify the rendering process; to run them (and edit icons
 
 To render new icons from their source SVG files, run the following:
 
-    ./render-pngs.py
+    ./render-*.py
 
 This script will look in the source directories (../src/*) and render the respective icons (provided there are changes).
 
