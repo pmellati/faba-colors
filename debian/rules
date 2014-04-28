@@ -4,5 +4,5 @@
 	dh $@ 
 
 override_dh_auto_install:
-    --sourcedir=Faba-Ceru,Faba-Lutu,Faba-Roja,Faba-Verd
+    --sourcedir=Faba-Ceru,Faba-Lutu,Faba-Roja,Faba-Verd,Faba-Viol
 

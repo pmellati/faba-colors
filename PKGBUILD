@@ -26,6 +26,7 @@ package() {
   install -d -m 755 "$pkgdir"/usr/share/icons/Faba-Lutu
   install -d -m 755 "$pkgdir"/usr/share/icons/Faba-Roja
   install -d -m 755 "$pkgdir"/usr/share/icons/Faba-Verd
+  install -d -m 755 "$pkgdir"/usr/share/icons/Faba-Viol
 
   # install theme
   cd $srcdir/faba-colors/Faba-Ceru
@@ -36,4 +37,6 @@ package() {
   cp -r . "$pkgdir"/usr/share/icons/Faba-Roja/
   cd $srcdir/faba-colors/Faba-Verd
   cp -r . "$pkgdir"/usr/share/icons/Faba-Verd/
+  cd $srcdir/faba-colors/Faba-Viol
+  cp -r . "$pkgdir"/usr/share/icons/Faba-Viol/
 }

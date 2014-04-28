@@ -45,6 +45,7 @@ cp -a Faba-Ceru/ $RPM_BUILD_ROOT%{_datadir}/icons/
 cp -a Faba-Lutu/ $RPM_BUILD_ROOT%{_datadir}/icons/
 cp -a Faba-Roja/ $RPM_BUILD_ROOT%{_datadir}/icons/
 cp -a Faba-Verd/ $RPM_BUILD_ROOT%{_datadir}/icons/
+cp -a Faba-Viol/ $RPM_BUILD_ROOT%{_datadir}/icons/
 
 %files
 %doc {AUTHORS,LICENSE}
@@ -52,3 +53,4 @@ cp -a Faba-Verd/ $RPM_BUILD_ROOT%{_datadir}/icons/
 %{_datadir}/icons/Faba-Lutu/
 %{_datadir}/icons/Faba-Roja/
 %{_datadir}/icons/Faba-Verd/
+%{_datadir}/icons/Faba-Viol/
