@@ -41,12 +41,14 @@ find -L . -type l -delete
 %build
 %install
 install -dpm 0755 $RPM_BUILD_ROOT%{_datadir}/icons/
-cp -a Faba-Blue/ $RPM_BUILD_ROOT%{_datadir}/icons/
-cp -a Faba-Green/ $RPM_BUILD_ROOT%{_datadir}/icons/
-cp -a Faba-Orange/ $RPM_BUILD_ROOT%{_datadir}/icons/
+cp -a Faba-Ceru/ $RPM_BUILD_ROOT%{_datadir}/icons/
+cp -a Faba-Lutu/ $RPM_BUILD_ROOT%{_datadir}/icons/
+cp -a Faba-Roja/ $RPM_BUILD_ROOT%{_datadir}/icons/
+cp -a Faba-Verd/ $RPM_BUILD_ROOT%{_datadir}/icons/
 
 %files
 %doc {AUTHORS,LICENSE}
-%{_datadir}/icons/Faba-Blue/
-%{_datadir}/icons/Faba-Green/
-%{_datadir}/icons/Faba-Orange/
+%{_datadir}/icons/Faba-Ceru/
+%{_datadir}/icons/Faba-Lutu/
+%{_datadir}/icons/Faba-Roja/
+%{_datadir}/icons/Faba-Verd/
